@@ -10,4 +10,8 @@
 
 @interface ClassicGameViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
+@property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
+@property (weak, nonatomic) IBOutlet UIView *imageGridView;
+
 @end
