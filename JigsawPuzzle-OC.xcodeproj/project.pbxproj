@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		CFB187771DC0091C00F4F247 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB187761DC0091C00F4F247 /* main.m */; };
 		CFB1877A1DC0091C00F4F247 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB187791DC0091C00F4F247 /* AppDelegate.m */; };
-		CFB1877D1DC0091C00F4F247 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB1877C1DC0091C00F4F247 /* ViewController.m */; };
+		CFB1877D1DC0091C00F4F247 /* ClassicMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB1877C1DC0091C00F4F247 /* ClassicMenuViewController.m */; };
 		CFB187801DC0091C00F4F247 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB1877E1DC0091C00F4F247 /* Main.storyboard */; };
 		CFB187821DC0091C00F4F247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFB187811DC0091C00F4F247 /* Assets.xcassets */; };
 		CFB187851DC0091C00F4F247 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB187831DC0091C00F4F247 /* LaunchScreen.storyboard */; };
+		CFB1878E1DC009DC00F4F247 /* ClassicGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB1878D1DC009DC00F4F247 /* ClassicGameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +21,14 @@
 		CFB187761DC0091C00F4F247 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CFB187781DC0091C00F4F247 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CFB187791DC0091C00F4F247 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CFB1877B1DC0091C00F4F247 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CFB1877C1DC0091C00F4F247 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CFB1877B1DC0091C00F4F247 /* ClassicMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassicMenuViewController.h; sourceTree = "<group>"; };
+		CFB1877C1DC0091C00F4F247 /* ClassicMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassicMenuViewController.m; sourceTree = "<group>"; };
 		CFB1877F1DC0091C00F4F247 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CFB187811DC0091C00F4F247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFB187841DC0091C00F4F247 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFB187861DC0091C00F4F247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFB1878C1DC009DC00F4F247 /* ClassicGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassicGameViewController.h; sourceTree = "<group>"; };
+		CFB1878D1DC009DC00F4F247 /* ClassicGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassicGameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +63,15 @@
 			children = (
 				CFB187781DC0091C00F4F247 /* AppDelegate.h */,
 				CFB187791DC0091C00F4F247 /* AppDelegate.m */,
-				CFB1877B1DC0091C00F4F247 /* ViewController.h */,
-				CFB1877C1DC0091C00F4F247 /* ViewController.m */,
+				CFB1877B1DC0091C00F4F247 /* ClassicMenuViewController.h */,
+				CFB1877C1DC0091C00F4F247 /* ClassicMenuViewController.m */,
 				CFB1877E1DC0091C00F4F247 /* Main.storyboard */,
 				CFB187811DC0091C00F4F247 /* Assets.xcassets */,
 				CFB187831DC0091C00F4F247 /* LaunchScreen.storyboard */,
 				CFB187861DC0091C00F4F247 /* Info.plist */,
 				CFB187751DC0091C00F4F247 /* Supporting Files */,
+				CFB1878C1DC009DC00F4F247 /* ClassicGameViewController.h */,
+				CFB1878D1DC009DC00F4F247 /* ClassicGameViewController.m */,
 			);
 			path = "JigsawPuzzle-OC";
 			sourceTree = "<group>";
@@ -149,7 +154,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFB1877D1DC0091C00F4F247 /* ViewController.m in Sources */,
+				CFB1877D1DC0091C00F4F247 /* ClassicMenuViewController.m in Sources */,
+				CFB1878E1DC009DC00F4F247 /* ClassicGameViewController.m in Sources */,
 				CFB1877A1DC0091C00F4F247 /* AppDelegate.m in Sources */,
 				CFB187771DC0091C00F4F247 /* main.m in Sources */,
 			);
