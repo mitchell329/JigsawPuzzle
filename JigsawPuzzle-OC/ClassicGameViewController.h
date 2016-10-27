@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClassicGameViewController : UIViewController
+@interface ClassicGameViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 @property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
