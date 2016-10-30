@@ -14,7 +14,7 @@
     //UIImage *selectedImage;
     CGFloat imageSize;
     CGFloat tileSize;
-    NSMutableArray *tilesArray;
+    NSMutableArray *tilesOuterArray;
     NSMutableArray *originalPositionOuterArray;
     NSMutableArray *currentPositionOuterArray;
     CGRect emptyTile;
@@ -45,6 +45,7 @@
     
     self.thumbImageView.image = self.settings.getImage;
     [self generateTiles:self.settings.getImage intoGrid:grid];
+    [self ruffleTiles];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,7 +88,7 @@
 {
     imageSize = _imageGridView.frame.size.height;
     tileSize = imageSize / number - 1;
-    tilesArray = [NSMutableArray arrayWithCapacity:(number * number)];
+    tilesOuterArray = [NSMutableArray arrayWithCapacity:number];
     originalPositionOuterArray = [NSMutableArray arrayWithCapacity:number];
     currentPositionOuterArray = [NSMutableArray arrayWithCapacity:number];
     
@@ -99,6 +100,7 @@
     for (int i = 0; i < grid; i++) {
         NSMutableArray *originalPositionInnerArray = [NSMutableArray arrayWithCapacity:number];
         NSMutableArray *currentPositionInnerArray = [NSMutableArray arrayWithCapacity:number];
+        NSMutableArray *tilesInnerArray = [NSMutableArray arrayWithCapacity:number];
         
         for (int j = 0; j < grid; j++) {
             UIImageView *tile = [self cropImage:newSizeImage atPosition:CGPointMake(i, j)];
@@ -107,8 +109,8 @@
             [tile setUserInteractionEnabled:YES];
             [tile addGestureRecognizer:singleTap];
             
+            [tilesInnerArray addObject:tile];
             [originalPositionInnerArray addObject:[NSValue valueWithCGPoint:CGPointMake(i, j)]];
-            
             [currentPositionInnerArray addObject:[NSValue valueWithCGPoint:CGPointMake(i, j)]];
             
             if (!(i == grid - 1 && j == grid - 1)) {
@@ -116,11 +118,64 @@
             }
         }
         
+        [tilesOuterArray addObject:tilesInnerArray];
         [originalPositionOuterArray addObject:originalPositionInnerArray];
         [currentPositionOuterArray addObject:currentPositionInnerArray];
     }
     
     emptyTile = CGRectMake((grid - 1) * (tileSize + 1), (grid - 1) * (tileSize + 1), tileSize, tileSize);
+    emptyTilePosition = CGPointMake(grid - 1, grid - 1);
+}
+
+- (void) ruffleTiles
+{
+    int x, y;
+    int i = 0;
+    while (i < ruffleSteps) {
+        CGPoint randomPosition = [self getRandomPosition];
+        x = (int)randomPosition.x;
+        y = (int)randomPosition.y;
+        UIView *randomTile = tilesOuterArray[x][y];
+        
+        //update empty tile position
+        emptyTilePosition = CGPointMake(x, y);
+        
+        //update current tile position
+        currentPositionOuterArray[x][y] = currentPositionOuterArray[(int)emptyTilePosition.x][(int)emptyTilePosition.y];
+        
+        //swap current tile with empty tile in the view
+        CGRect tempRect = randomTile.frame;
+        randomTile.frame = emptyTile;
+        emptyTile = tempRect;
+        
+        i++;
+    }
+}
+
+- (CGPoint) getRandomPosition
+{
+    int x, y;
+    if (emptyTilePosition.x == 0) {
+        x = arc4random() % 2;
+    }
+    else if (emptyTilePosition.x == grid - 1) {
+        x = (emptyTilePosition.x - 1) + arc4random() % 2;
+    }
+    else {
+        x = (emptyTilePosition.x - 1) + arc4random() % 3;
+    }
+    
+    if (emptyTilePosition.y == 0) {
+        y = arc4random() % 2;
+    }
+    else if (emptyTilePosition.y == grid - 1) {
+        y = (emptyTilePosition.y - 1) + arc4random() % 2;
+    }
+    else {
+        y = (emptyTilePosition.y - 1) + arc4random() % 3;
+    }
+    
+    return CGPointMake(x, y);
 }
 
 - (void)tapTile : (UITapGestureRecognizer *)sender
@@ -171,17 +226,6 @@
     
     if ([self isWin]) {
         [self popupAlert:@"You Win!"];
-    }
-}
-
-- (void) ruffleTiles
-{
-    int x, y;
-    int i = 0;
-    while (i < ruffleSteps) {
-        if (emptyTilePosition.x == 0) {
-            x = 0;
-        }
     }
 }
 
