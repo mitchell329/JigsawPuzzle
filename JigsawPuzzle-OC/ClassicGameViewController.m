@@ -18,8 +18,10 @@
     NSMutableArray *originalPositionOuterArray;
     NSMutableArray *currentPositionOuterArray;
     CGRect emptyTile;
+    CGPoint emptyTilePosition;
     int grid;
     int steps;
+    int ruffleSteps;
 }
 @end
 
@@ -31,7 +33,8 @@
     
     //UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
     //grid = 3;
-    grid = (self.settings.getDifficultLevel+1)*3;
+    grid = self.settings.getDifficultLevel + 3;
+    ruffleSteps = pow(4, grid);
     steps = 0;
     _stepsLabel.text = [@(steps) stringValue];
     
@@ -168,6 +171,17 @@
     
     if ([self isWin]) {
         [self popupAlert:@"You Win!"];
+    }
+}
+
+- (void) ruffleTiles
+{
+    int x, y;
+    int i = 0;
+    while (i < ruffleSteps) {
+        if (emptyTilePosition.x == 0) {
+            x = 0;
+        }
     }
 }
 
