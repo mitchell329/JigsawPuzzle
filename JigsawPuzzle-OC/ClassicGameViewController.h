@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameSetting.h"
 
 @interface ClassicGameViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 @property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
 @property (weak, nonatomic) IBOutlet UIView *imageGridView;
+
+@property (nonatomic) GameSetting *settings;
 
 @end

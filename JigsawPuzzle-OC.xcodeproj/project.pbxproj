@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845A5FE61DC5AE0F0089EEE6 /* GameSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A5FE51DC5AE0F0089EEE6 /* GameSetting.m */; };
+		84A4CAF31DC5798B00F781D4 /* ClassicGameSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A4CAF21DC5798B00F781D4 /* ClassicGameSettingsController.m */; };
 		CFB187771DC0091C00F4F247 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB187761DC0091C00F4F247 /* main.m */; };
 		CFB1877A1DC0091C00F4F247 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB187791DC0091C00F4F247 /* AppDelegate.m */; };
-		CFB1877D1DC0091C00F4F247 /* ClassicMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB1877C1DC0091C00F4F247 /* ClassicMenuViewController.m */; };
+		CFB1877D1DC0091C00F4F247 /* ClassicAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB1877C1DC0091C00F4F247 /* ClassicAuthViewController.m */; };
 		CFB187801DC0091C00F4F247 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB1877E1DC0091C00F4F247 /* Main.storyboard */; };
 		CFB187821DC0091C00F4F247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFB187811DC0091C00F4F247 /* Assets.xcassets */; };
 		CFB187851DC0091C00F4F247 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB187831DC0091C00F4F247 /* LaunchScreen.storyboard */; };
@@ -17,12 +19,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		845A5FE41DC5AE0F0089EEE6 /* GameSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSetting.h; sourceTree = "<group>"; };
+		845A5FE51DC5AE0F0089EEE6 /* GameSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSetting.m; sourceTree = "<group>"; };
+		84A4CAF11DC5798B00F781D4 /* ClassicGameSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassicGameSettingsController.h; sourceTree = "<group>"; };
+		84A4CAF21DC5798B00F781D4 /* ClassicGameSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassicGameSettingsController.m; sourceTree = "<group>"; };
 		CFB187721DC0091C00F4F247 /* JigsawPuzzle-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JigsawPuzzle-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB187761DC0091C00F4F247 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CFB187781DC0091C00F4F247 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CFB187791DC0091C00F4F247 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CFB1877B1DC0091C00F4F247 /* ClassicMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassicMenuViewController.h; sourceTree = "<group>"; };
-		CFB1877C1DC0091C00F4F247 /* ClassicMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassicMenuViewController.m; sourceTree = "<group>"; };
+		CFB1877B1DC0091C00F4F247 /* ClassicAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassicAuthViewController.h; sourceTree = "<group>"; };
+		CFB1877C1DC0091C00F4F247 /* ClassicAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassicAuthViewController.m; sourceTree = "<group>"; };
 		CFB1877F1DC0091C00F4F247 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CFB187811DC0091C00F4F247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFB187841DC0091C00F4F247 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,8 +69,8 @@
 			children = (
 				CFB187781DC0091C00F4F247 /* AppDelegate.h */,
 				CFB187791DC0091C00F4F247 /* AppDelegate.m */,
-				CFB1877B1DC0091C00F4F247 /* ClassicMenuViewController.h */,
-				CFB1877C1DC0091C00F4F247 /* ClassicMenuViewController.m */,
+				CFB1877B1DC0091C00F4F247 /* ClassicAuthViewController.h */,
+				CFB1877C1DC0091C00F4F247 /* ClassicAuthViewController.m */,
 				CFB1877E1DC0091C00F4F247 /* Main.storyboard */,
 				CFB187811DC0091C00F4F247 /* Assets.xcassets */,
 				CFB187831DC0091C00F4F247 /* LaunchScreen.storyboard */,
@@ -72,6 +78,10 @@
 				CFB187751DC0091C00F4F247 /* Supporting Files */,
 				CFB1878C1DC009DC00F4F247 /* ClassicGameViewController.h */,
 				CFB1878D1DC009DC00F4F247 /* ClassicGameViewController.m */,
+				84A4CAF11DC5798B00F781D4 /* ClassicGameSettingsController.h */,
+				84A4CAF21DC5798B00F781D4 /* ClassicGameSettingsController.m */,
+				845A5FE41DC5AE0F0089EEE6 /* GameSetting.h */,
+				845A5FE51DC5AE0F0089EEE6 /* GameSetting.m */,
 			);
 			path = "JigsawPuzzle-OC";
 			sourceTree = "<group>";
@@ -110,7 +120,7 @@
 		CFB1876A1DC0091C00F4F247 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Mitchell;
 				TargetAttributes = {
 					CFB187711DC0091C00F4F247 = {
@@ -154,7 +164,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFB1877D1DC0091C00F4F247 /* ClassicMenuViewController.m in Sources */,
+				845A5FE61DC5AE0F0089EEE6 /* GameSetting.m in Sources */,
+				CFB1877D1DC0091C00F4F247 /* ClassicAuthViewController.m in Sources */,
+				84A4CAF31DC5798B00F781D4 /* ClassicGameSettingsController.m in Sources */,
 				CFB1878E1DC009DC00F4F247 /* ClassicGameViewController.m in Sources */,
 				CFB1877A1DC0091C00F4F247 /* AppDelegate.m in Sources */,
 				CFB187771DC0091C00F4F247 /* main.m in Sources */,
@@ -196,8 +208,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -240,8 +254,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -306,6 +322,7 @@
 				CFB1878B1DC0091C00F4F247 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -6,13 +6,13 @@
 //  Copyright © 2016 Mitchell. All rights reserved.
 //
 
-#import "ClassicMenuViewController.h"
+#import "ClassicAuthViewController.h"
 
-@interface ClassicMenuViewController ()
+@interface ClassicAuthViewController ()
 
 @end
 
-@implementation ClassicMenuViewController
+@implementation ClassicAuthViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

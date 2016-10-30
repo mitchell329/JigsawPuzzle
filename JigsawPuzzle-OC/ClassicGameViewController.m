@@ -29,15 +29,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    grid = 3;
+    //UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    //grid = 3;
+    grid = (self.settings.getDifficultLevel+1)*3;
     steps = 0;
     _stepsLabel.text = [@(steps) stringValue];
     
-    imagePickerController.delegate = self;
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    //imagePickerController.delegate = self;
+    //imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
-    [self presentViewController:imagePickerController animated:YES completion:nil];
+    //[self presentViewController:imagePickerController animated:YES completion:nil];
+    
+    self.thumbImageView.image = self.settings.getImage;
+    [self generateTiles:self.settings.getImage intoGrid:grid];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClassicMenuViewController : UIViewController
+@interface ClassicAuthViewController : UIViewController
 
 
 @end
