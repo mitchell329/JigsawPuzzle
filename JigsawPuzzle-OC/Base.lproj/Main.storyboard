@@ -41,9 +41,22 @@
                                     <action selector="pickImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NOc-Ei-jHy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1i-oL-1pa">
-                                <rect key="frame" x="180" y="564" width="240" height="48"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0WB-9z-a9m">
+                                <rect key="frame" x="43" y="389" width="514" height="121"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="121" id="K6O-cu-Tdp"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="gbm-9h-pM7"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="1hD-iv-Kai"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1i-oL-1pa">
+                                <rect key="frame" x="180" y="518" width="240" height="34"/>
                                 <color key="backgroundColor" red="0.72336632013320923" green="0.72336632013320923" blue="0.72336632013320923" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="a7h-h6-hDr"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,17 +65,15 @@
                                     <segue destination="T9S-YI-OpI" kind="show" identifier="startGame" id="nsg-f1-b41"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0WB-9z-a9m">
-                                <rect key="frame" x="131" y="383" width="521" height="187"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="gbm-9h-pM7"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="1hD-iv-Kai"/>
-                                </connections>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="0WB-9z-a9m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="23" id="9rl-5G-pd6"/>
+                            <constraint firstItem="0WB-9z-a9m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OiT-kX-b8e"/>
+                            <constraint firstItem="Z1i-oL-1pa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RNW-qD-CTq"/>
+                            <constraint firstItem="Z1i-oL-1pa" firstAttribute="top" secondItem="0WB-9z-a9m" secondAttribute="bottom" constant="8" symbolic="YES" id="bDt-5S-H5P"/>
                             <constraint firstItem="kpV-vG-vH6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lVP-Z3-eyu"/>
+                            <constraint firstItem="0WB-9z-a9m" firstAttribute="top" secondItem="9NQ-0J-Fzb" secondAttribute="bottom" constant="2" id="mK3-cN-G9o"/>
                             <constraint firstItem="9NQ-0J-Fzb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="my4-Th-QHj"/>
                             <constraint firstItem="kpV-vG-vH6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="29" id="oNG-uD-eKR"/>
                             <constraint firstItem="9NQ-0J-Fzb" firstAttribute="top" secondItem="kpV-vG-vH6" secondAttribute="bottom" constant="24" id="tfW-ka-K3V"/>
@@ -76,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114.4927536231885" y="428.804347826087"/>
+            <point key="canvasLocation" x="1114" y="428"/>
         </scene>
         <!--Classic Game View Controller-->
         <scene sceneID="gUa-6w-Dqv">

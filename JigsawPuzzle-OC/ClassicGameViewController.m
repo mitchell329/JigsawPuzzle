@@ -31,20 +31,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    //grid = 3;
     grid = self.settings.getDifficultLevel + 3;
-    ruffleSteps = pow(4, grid);
+    ruffleSteps = pow(3, grid);
+    //ruffleSteps = 6;
     steps = 0;
     _stepsLabel.text = [@(steps) stringValue];
     
-    //imagePickerController.delegate = self;
-    //imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
-    //[self presentViewController:imagePickerController animated:YES completion:nil];
-    
-    self.thumbImageView.image = self.settings.getImage;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
     [self generateTiles:self.settings.getImage intoGrid:grid];
+    self.thumbImageView.image = self.settings.getImage;
     [self ruffleTiles];
 }
 
@@ -53,24 +51,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (void)imagePickerController:(UIImagePickerController *)picker
-    didFinishPickingImage:(nonnull UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo
-{
-    //[picker dismissViewControllerAnimated:YES completion:^{[self displayOriginalImage:image];}];
-    [picker dismissViewControllerAnimated:YES completion:^{[self generateTiles:image intoGrid:grid];}];
-    self.thumbImageView.image = image;
-    //selectedImage = image;
-}
 
 - (UIImageView *)cropImage : (UIImage *)image atPosition: (CGPoint)position
 {
@@ -129,26 +109,49 @@
 
 - (void) ruffleTiles
 {
-    int x, y;
-    int i = 0;
-    while (i < ruffleSteps) {
+    int i, j;
+    int k = 0;
+    while (k < ruffleSteps) {
         CGPoint randomPosition = [self getRandomPosition];
-        x = (int)randomPosition.x;
-        y = (int)randomPosition.y;
-        UIView *randomTile = tilesOuterArray[x][y];
+        i = (int)randomPosition.y;
+        j = (int)randomPosition.x;
         
-        //update empty tile position
-        emptyTilePosition = CGPointMake(x, y);
+        if ((i == emptyTilePosition.y - 1 && j == emptyTilePosition.x - 1) ||
+            (i == emptyTilePosition.y - 1 && j == emptyTilePosition.x + 1) ||
+            (i == emptyTilePosition.y + 1 && j == emptyTilePosition.x - 1) ||
+            (i == emptyTilePosition.y + 1 && j == emptyTilePosition.x + 1) ||
+            (i == emptyTilePosition.y && j == emptyTilePosition.x)) {
+            continue;
+        }
+        
+        UIView *randomTile = tilesOuterArray[j][i];
+        
+        //update tiles array
+        tilesOuterArray[i][j] = tilesOuterArray[(int)emptyTilePosition.y][(int)emptyTilePosition.x];
+        tilesOuterArray[(int)emptyTilePosition.y][(int)emptyTilePosition.x] = randomTile;
+                                                
+        
         
         //update current tile position
-        currentPositionOuterArray[x][y] = currentPositionOuterArray[(int)emptyTilePosition.x][(int)emptyTilePosition.y];
+        CGPoint tempPosition = [currentPositionOuterArray[i][j] CGPointValue];
+        
+        NSLog(@"temp position: %d, %d", (int)tempPosition.x, (int)tempPosition.y);
+        
+        //currentPositionOuterArray[i][j] = currentPositionOuterArray[(int)emptyTilePosition.y][(int)emptyTilePosition.x];
+        //currentPositionOuterArray[(int)emptyTilePosition.y][(int)emptyTilePosition.x] = [NSValue valueWithCGPoint:tempPosition];
+        
+        currentPositionOuterArray[i][j] = [NSValue valueWithCGPoint:CGPointMake(emptyTilePosition.x, emptyTilePosition.y)];
+        currentPositionOuterArray[(int)emptyTilePosition.x][(int)emptyTilePosition.y] = [NSValue valueWithCGPoint:tempPosition];
         
         //swap current tile with empty tile in the view
         CGRect tempRect = randomTile.frame;
         randomTile.frame = emptyTile;
         emptyTile = tempRect;
         
-        i++;
+        //update empty tile position
+        emptyTilePosition = CGPointMake(i, j);
+        
+        k++;
     }
 }
 
@@ -175,6 +178,8 @@
         y = (emptyTilePosition.y - 1) + arc4random() % 3;
     }
     
+    NSLog(@"random position: %d, %d", x, y);
+    
     return CGPointMake(x, y);
 }
 
@@ -193,27 +198,39 @@
     CGPoint tempPoint = [currentPositionOuterArray[indexOuter][indexInner] CGPointValue];
     
     if ([self isWithinEmptyTile:CGPointMake(location.x - tileSize, location.y)]) {
-        tappedTile.frame = CGRectMake(tappedPosition.x - tileSize, tappedPosition.y, tileSize, tileSize);
+        tappedTile.frame = CGRectMake(tappedPosition.x - (tileSize + 1), tappedPosition.y, tileSize, tileSize);
         
-        currentPositionOuterArray[indexOuter][indexInner] = currentPositionOuterArray[indexOuter][indexInner - 1];
+        //currentPositionOuterArray[indexOuter][indexInner] = currentPositionOuterArray[indexOuter][indexInner - 1];
+        //currentPositionOuterArray[indexOuter][indexInner - 1] = [NSValue valueWithCGPoint:tempPoint];
+        
+        currentPositionOuterArray[indexOuter][indexInner] = [NSValue valueWithCGPoint:CGPointMake(indexOuter, indexInner - 1)];
         currentPositionOuterArray[indexOuter][indexInner - 1] = [NSValue valueWithCGPoint:tempPoint];
     }
     if ([self isWithinEmptyTile:CGPointMake(location.x + tileSize, location.y)]) {
-        tappedTile.frame = CGRectMake(tappedPosition.x + tileSize, tappedPosition.y, tileSize, tileSize);
+        tappedTile.frame = CGRectMake(tappedPosition.x + (tileSize + 1), tappedPosition.y, tileSize, tileSize);
         
-        currentPositionOuterArray[indexOuter][indexInner] = currentPositionOuterArray[indexOuter][indexInner + 1];
+        //currentPositionOuterArray[indexOuter][indexInner] = currentPositionOuterArray[indexOuter][indexInner + 1];
+        //currentPositionOuterArray[indexOuter][indexInner + 1] = [NSValue valueWithCGPoint:tempPoint];
+        
+        currentPositionOuterArray[indexOuter][indexInner] = [NSValue valueWithCGPoint:CGPointMake(indexOuter, indexInner + 1)];
         currentPositionOuterArray[indexOuter][indexInner + 1] = [NSValue valueWithCGPoint:tempPoint];
     }
     if ([self isWithinEmptyTile:CGPointMake(location.x, location.y - tileSize)]) {
-        tappedTile.frame = CGRectMake(tappedPosition.x, tappedPosition.y - tileSize, tileSize, tileSize);
+        tappedTile.frame = CGRectMake(tappedPosition.x, tappedPosition.y - (tileSize + 1), tileSize, tileSize);
         
-        currentPositionOuterArray[indexOuter][indexInner] = currentPositionOuterArray[indexOuter - 1][indexInner];
+        //currentPositionOuterArray[indexOuter][indexInner] = currentPositionOuterArray[indexOuter - 1][indexInner];
+        //currentPositionOuterArray[indexOuter - 1][indexInner] = [NSValue valueWithCGPoint:tempPoint];
+        
+        currentPositionOuterArray[indexOuter][indexInner] = [NSValue valueWithCGPoint:CGPointMake(indexOuter - 1, indexInner)];
         currentPositionOuterArray[indexOuter - 1][indexInner] = [NSValue valueWithCGPoint:tempPoint];
     }
     if ([self isWithinEmptyTile:CGPointMake(location.x, location.y + tileSize)]) {
-        tappedTile.frame = CGRectMake(tappedPosition.x, tappedPosition.y + tileSize, tileSize, tileSize);
+        tappedTile.frame = CGRectMake(tappedPosition.x, tappedPosition.y + (tileSize + 1), tileSize, tileSize);
         
-        currentPositionOuterArray[indexOuter][indexInner] = currentPositionOuterArray[indexOuter + 1][indexInner];
+        //currentPositionOuterArray[indexOuter][indexInner] = currentPositionOuterArray[indexOuter + 1][indexInner];
+        //currentPositionOuterArray[indexOuter + 1][indexInner] = [NSValue valueWithCGPoint:tempPoint];
+        
+        currentPositionOuterArray[indexOuter][indexInner] = [NSValue valueWithCGPoint:CGPointMake(indexOuter + 1, indexInner)];
         currentPositionOuterArray[indexOuter + 1][indexInner] = [NSValue valueWithCGPoint:tempPoint];
     }
     

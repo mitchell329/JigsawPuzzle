@@ -81,7 +81,7 @@
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     NSString *resultString = _dataSourceArray[row];
-    [self.setting setDifficultLevel:row];
+    [self.setting setDifficultLevel: (int)row];
     NSLog(@"%@", resultString);
 }
 
