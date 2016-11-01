@@ -31,6 +31,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+        [_imageGridView.superview removeConstraint:_imageGridViewLeadingConstraint];
+        [_imageGridView.superview removeConstraint:_imageGridViewTrailingConstraint];
+        NSLayoutConstraint *imageGridViewHeightConstraint = [NSLayoutConstraint constraintWithItem:self.imageGridView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:screenHeight / 2];
+        NSLayoutConstraint *centerHorizontallyConstraint = [NSLayoutConstraint constraintWithItem:_imageGridView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:_imageGridView.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
+        [self.view addConstraint:centerHorizontallyConstraint];
+        [_imageGridView addConstraint:imageGridViewHeightConstraint];
+    }
+    
     grid = self.settings.getDifficultLevel + 3;
     ruffleSteps = pow(3, grid);
     steps = 0;
@@ -53,6 +63,7 @@
 
 -(void)generateTiles : (UIImage *)image intoGrid:(int)number
 {
+    
     imageSize = _imageGridView.frame.size.height;
     gridSize = imageSize / number;
     tileSize = gridSize - 1;

@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Classic Game Settings Controller-->
@@ -102,36 +103,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r57-fP-fHX">
-                                <rect key="frame" x="20" y="260" width="560" height="560"/>
+                                <rect key="frame" x="20" y="354" width="560" height="560"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="r57-fP-fHX" secondAttribute="height" multiplier="1:1" id="hj6-Ew-dLD"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iFM-a8-F28">
-                                <rect key="frame" x="20" y="89" width="128" height="128"/>
+                                <rect key="frame" x="20" y="89" width="240" height="240"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="1WA-Wr-aTf"/>
                                     <constraint firstAttribute="width" secondItem="iFM-a8-F28" secondAttribute="height" multiplier="1:1" id="bPp-7d-p7b"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x0f-xR-5Zo">
-                                <rect key="frame" x="156" y="89" width="424" height="128"/>
+                                <rect key="frame" x="268" y="89" width="312" height="240"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4b2-cu-wuL">
-                                        <rect key="frame" x="188" y="33" width="49" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mo9-W7-eT7">
+                                        <rect key="frame" x="78" y="108" width="156" height="24"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="QNa-zn-dth"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mo9-W7-eT7">
-                                        <rect key="frame" x="174" y="62" width="77" height="24"/>
-                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="QNa-zn-dth"/>
-                                            <constraint firstAttribute="width" constant="77" id="hBw-OO-4RI"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4b2-cu-wuL">
+                                        <rect key="frame" x="132" y="79" width="49" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -139,11 +138,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="4b2-cu-wuL" firstAttribute="top" secondItem="x0f-xR-5Zo" secondAttribute="top" constant="33" id="RRW-15-nIa"/>
-                                    <constraint firstAttribute="bottom" secondItem="mo9-W7-eT7" secondAttribute="bottom" constant="42" id="Tkr-fb-nHs"/>
-                                    <constraint firstAttribute="height" constant="128" id="dcT-t9-shv"/>
+                                    <constraint firstItem="mo9-W7-eT7" firstAttribute="width" secondItem="x0f-xR-5Zo" secondAttribute="width" multiplier="1:2" id="VWk-7q-5WK"/>
                                     <constraint firstItem="mo9-W7-eT7" firstAttribute="centerX" secondItem="x0f-xR-5Zo" secondAttribute="centerX" id="hck-Cz-4xD"/>
                                     <constraint firstItem="4b2-cu-wuL" firstAttribute="centerX" secondItem="x0f-xR-5Zo" secondAttribute="centerX" id="iQ7-LU-vOl"/>
+                                    <constraint firstItem="mo9-W7-eT7" firstAttribute="centerY" secondItem="x0f-xR-5Zo" secondAttribute="centerY" id="n9S-8Q-87i"/>
+                                    <constraint firstItem="mo9-W7-eT7" firstAttribute="top" secondItem="4b2-cu-wuL" secondAttribute="bottom" constant="8" symbolic="YES" id="uGQ-Pw-xwW"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -151,16 +150,20 @@
                         <constraints>
                             <constraint firstItem="x0f-xR-5Zo" firstAttribute="leading" secondItem="iFM-a8-F28" secondAttribute="trailing" constant="8" id="8A9-v5-tQM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="r57-fP-fHX" secondAttribute="trailing" id="BP4-kQ-4Ar"/>
+                            <constraint firstItem="iFM-a8-F28" firstAttribute="width" secondItem="vzK-YJ-58k" secondAttribute="width" multiplier="2:5" id="EEO-mY-byb"/>
                             <constraint firstAttribute="leadingMargin" secondItem="r57-fP-fHX" secondAttribute="leading" id="JGg-cL-3wy"/>
                             <constraint firstAttribute="leadingMargin" secondItem="iFM-a8-F28" secondAttribute="leading" id="Pyd-aB-mEv"/>
-                            <constraint firstItem="r57-fP-fHX" firstAttribute="top" secondItem="iFM-a8-F28" secondAttribute="bottom" constant="43" id="Qce-tN-BGT"/>
+                            <constraint firstItem="r57-fP-fHX" firstAttribute="top" secondItem="iFM-a8-F28" secondAttribute="bottom" constant="25" id="Qce-tN-BGT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x0f-xR-5Zo" secondAttribute="trailing" id="TrR-o6-pC0"/>
+                            <constraint firstItem="x0f-xR-5Zo" firstAttribute="height" secondItem="iFM-a8-F28" secondAttribute="height" id="amo-aH-RGr"/>
                             <constraint firstItem="iFM-a8-F28" firstAttribute="top" secondItem="Pie-GR-YIa" secondAttribute="bottom" constant="25" id="dEB-gH-UCM"/>
                             <constraint firstItem="x0f-xR-5Zo" firstAttribute="top" secondItem="Pie-GR-YIa" secondAttribute="bottom" constant="25" id="pRB-xB-He4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageGridView" destination="r57-fP-fHX" id="HVW-Jt-5hn"/>
+                        <outlet property="imageGridViewLeadingConstraint" destination="JGg-cL-3wy" id="Noc-1a-qeW"/>
+                        <outlet property="imageGridViewTrailingConstraint" destination="BP4-kQ-4Ar" id="xrG-dO-Jxg"/>
                         <outlet property="stepsLabel" destination="mo9-W7-eT7" id="1aG-3X-Ylh"/>
                         <outlet property="thumbImageView" destination="iFM-a8-F28" id="pfw-8u-9Cx"/>
                     </connections>
